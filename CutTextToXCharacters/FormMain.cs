@@ -743,10 +743,14 @@ namespace CutTextToXCharacters
 
       string sourceText = textBoxSource.Text;
       // on coupe le text tous les 4000 caractères (numberOfCharacterMax)
-      int compteurDePage = 1;
+      int compteurDePage = 0;
       int numberOfEstimatedPage = Math.Abs(sourceText.Count() / numberOfCharacterMax);
-      string[] pages = new string[numberOfEstimatedPage + 1];
+      string[] pagesArray = new string[numberOfEstimatedPage + 1];
+      var pages = sourceText.SplitInParts(numberOfCharacterMax);
+      var pages2 = sourceText.SplitInPartsInMemory(numberOfCharacterMax);
+      var pages3 = StringExtensions.GetChunks(sourceText, numberOfCharacterMax);
 
+      var test = 3;
     }
   }
 }
