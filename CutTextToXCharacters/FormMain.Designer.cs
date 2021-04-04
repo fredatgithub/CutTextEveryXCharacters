@@ -78,6 +78,7 @@ namespace CutTextToXCharacters
       this.labelSentences = new System.Windows.Forms.Label();
       this.buttonCount = new System.Windows.Forms.Button();
       this.labelCharactersWithoutSpace = new System.Windows.Forms.Label();
+      this.labelEstimatedPage = new System.Windows.Forms.Label();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -389,7 +390,7 @@ namespace CutTextToXCharacters
       // 
       // buttonCutText
       // 
-      this.buttonCutText.Location = new System.Drawing.Point(569, 225);
+      this.buttonCutText.Location = new System.Drawing.Point(744, 225);
       this.buttonCutText.Name = "buttonCutText";
       this.buttonCutText.Size = new System.Drawing.Size(75, 23);
       this.buttonCutText.TabIndex = 3;
@@ -479,11 +480,21 @@ namespace CutTextToXCharacters
       this.labelCharactersWithoutSpace.TabIndex = 13;
       this.labelCharactersWithoutSpace.Text = "Characters: 0";
       // 
+      // labelEstimatedPage
+      // 
+      this.labelEstimatedPage.AutoSize = true;
+      this.labelEstimatedPage.Location = new System.Drawing.Point(658, 256);
+      this.labelEstimatedPage.Name = "labelEstimatedPage";
+      this.labelEstimatedPage.Size = new System.Drawing.Size(98, 13);
+      this.labelEstimatedPage.TabIndex = 14;
+      this.labelEstimatedPage.Text = "Estimated Pages: 0";
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(873, 721);
+      this.Controls.Add(this.labelEstimatedPage);
       this.Controls.Add(this.labelCharactersWithoutSpace);
       this.Controls.Add(this.buttonCount);
       this.Controls.Add(this.labelSentences);
@@ -560,5 +571,6 @@ namespace CutTextToXCharacters
     private System.Windows.Forms.Label labelSentences;
     private System.Windows.Forms.Button buttonCount;
     private System.Windows.Forms.Label labelCharactersWithoutSpace;
+    private System.Windows.Forms.Label labelEstimatedPage;
   }
 }

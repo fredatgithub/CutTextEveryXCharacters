@@ -22,6 +22,7 @@ namespace CutTextToXCharacters
     public readonly Dictionary<string, string> LanguageDicoFr = new Dictionary<string, string>();
     private string _currentLanguage = "english";
     private ConfigurationOptions _configurationOptions = new ConfigurationOptions();
+    public const int numberOfCharacterMax = 4000;
 
     private void QuitToolStripMenuItemClick(object sender, EventArgs e)
     {
@@ -712,21 +713,6 @@ namespace CutTextToXCharacters
       }
     }
 
-    private void ButtonCutText_Click(object sender, EventArgs e)
-    {
-      textBox1.Text = string.Empty;
-      textBox2.Text = string.Empty;
-      textBox3.Text = string.Empty;
-      textBox4.Text = string.Empty;
-      if (string.IsNullOrWhiteSpace(textBoxSource.Text))
-      {
-        return;
-      }
-
-      string sourceText = textBoxSource.Text;
-
-    }
-
     private void ButtonCount_Click(object sender, EventArgs e)
     {
       if (string.IsNullOrWhiteSpace(textBoxSource.Text))
@@ -739,6 +725,28 @@ namespace CutTextToXCharacters
       labelNumberOfCharacters.Text = $"Characters with space: {sourceText.Count()}";
       labelCharactersWithoutSpace.Text = $"Characters without space: {sourceText.Replace(" ", "").Count()}";
       labelSentences.Text = $"Sentences: {sourceText.Split('.').Count()}";
+      string sourceText2 = textBoxSource.Text;
+      int numberOfEstimatedPage = Math.Abs(sourceText2.Count() / numberOfCharacterMax);
+      labelEstimatedPage.Text = $"Estimated Pages: {numberOfEstimatedPage}";
+    }
+
+    private void ButtonCutText_Click(object sender, EventArgs e)
+    {
+      textBox1.Text = string.Empty;
+      textBox2.Text = string.Empty;
+      textBox3.Text = string.Empty;
+      textBox4.Text = string.Empty;
+      if (string.IsNullOrWhiteSpace(textBoxSource.Text))
+      {
+        return;
+      }
+
+      string sourceText = textBoxSource.Text;
+      // on coupe le text tous les 4000 caractères (numberOfCharacterMax)
+      int compteurDePage = 1;
+      int numberOfEstimatedPage = Math.Abs(sourceText.Count() / numberOfCharacterMax);
+      string[] pages = new string[numberOfEstimatedPage + 1];
+
     }
   }
 }
